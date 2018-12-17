@@ -1,0 +1,146 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <img class="user-avatar" src="assets/images/5G-logo-5.jpg" width="100px" />
+    <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <i class="fa fa-bars text-muted" aria-hidden="true"></i>
+    </button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link mt-1"
+                    style="padding: 0.375rem 1rem !important; border-color: #999;"
+                    [routerLink]="['/Home']"
+                >
+                <h1 style="font-size: 110%; font-weight: bold;" > HOME </h1>  
+                </a>
+                
+            </li> &nbsp;
+            <li class="nav-item dropdown" ngbDropdown>
+                <a href="javascript:void(0)" class="nav-link mt-1" ngbDropdownToggle
+                    style="font-size: 110%; font-weight: bold; padding: 0.375rem 1rem !important; border-color: #999;"
+                    [routerLink]="['/AboutUs']"
+                >
+                ABOUT US 
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Motivation'  }}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Vision' }}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Objective'}}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Contact Us'}}
+                         </a>
+                </div>
+            </li> &nbsp;
+            <li class="nav-item dropdown" ngbDropdown>
+                <a href="javascript:void(0)" class="nav-link mt-1" ngbDropdownToggle
+                    style="font-size: 110%; font-weight: bold; padding: 0.375rem 1rem !important; border-color: #999;"
+                    [routerLink]="['/5G']"
+                >
+                5G
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ '5G Presentation'  }}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ '5G News' }}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'White Papers'}}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ '5G Services'}}
+                         </a>
+                         <a class="dropdown-item" href="javascript:void(0)">
+                                {{ 'Videos'}}
+                            </a>
+                </div>
+            </li> &nbsp;
+            <li class="nav-item dropdown" ngbDropdown>
+                <a href="javascript:void(0)" class="nav-link mt-1" ngbDropdownToggle
+                    style="font-size: 110%; font-weight: bold; padding: 0.375rem 1rem !important; border-color: #999;"
+                    [routerLink]="['/GOVandORG']"
+                >
+                 GOVERNANCE & ORGANIZATION
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Collaboration Links'  }}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Stakeholders' }}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Governance Model'}}
+                        </a>
+                  
+                </div>
+            </li> &nbsp;
+            <li class="nav-item dropdown" ngbDropdown>
+                <a href="javascript:void(0)" class="nav-link mt-1" ngbDropdownToggle
+                    style="font-size: 110%; font-weight: bold; padding: 0.375rem 1rem !important; border-color: #999;"
+                    [routerLink]="['/Events']"
+                >
+                EVENTS
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Past Events'  }}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Upcoming Events' }}
+                        </a>
+                      
+                </div>
+            </li> &nbsp;
+            <li class="nav-item dropdown" ngbDropdown>
+                <a href="javascript:void(0)" class="nav-link mt-1 " ngbDropdownToggle
+                    style="font-size: 110%; font-weight: bold; padding: 0.375rem 1rem !important; border-color: #999;"
+                    [routerLink]="['/CaseStudies']"
+                >
+                CASE STUDIES
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Item1'  }}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Item2' }}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Item3'}}
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                             {{ 'Item4'}}
+                         </a>
+                </div>
+            </li> &nbsp;
+            <li class="nav-item dropdown" ngbDropdown>
+                <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                    <i class="fa fa-user"></i> John Smith <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
+                        <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
