@@ -1,0 +1,94 @@
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <div>     
+        </div>&nbsp;
+        <div>     
+        </div>&nbsp;
+        <div>     
+        </div>&nbsp;
+         <h3>
+            
+            About Us
+         </h3>
+      </div>
+  
+      <ul class="list-unstyled components">
+      
+        <li >
+          <a routerLink="/motivation"> 
+          Motivation
+          </a>
+        </li>
+       
+        <li>
+          <a routerLink="/vision"  > 
+            Vision        
+          </a>
+        </li>
+        <router-outlet></router-outlet>
+  
+        <li>
+          <a routerLink="/objective" >Objective</a>
+        </li>
+  
+        <li>
+          <a routerLink="/contactus" style = "background-color: rgb(24, 25, 92);">Contact Us</a>
+        </li>
+        
+      </ul>
+  
+      <ul class="list-unstyled CTAs">
+  
+        <li><a [routerLink]="['/Home']" class="Back">Back To Home</a></li>
+      </ul>
+    </nav>
+  
+    <!-- Page Content Holder -->
+    <div id="content">
+        <div>     
+        </div>&nbsp;
+        <div>     
+        </div>&nbsp;
+        <div>     
+        </div>&nbsp;
+     
+  
+  
+        <h2 class="heading-primary delimiter-both" style="color:#1e73be;font-size: 32px;font-weight: 700;">Contact Us</h2>
+  
+      
+      <div class="container">
+        <form action="action_page.php">
+      
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          <label for="lname">Email</label>
+          <input type="text" id="lname" name="email" placeholder="Your email..">
+      
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+            <option value="usa">Tunisia</option>
+          </select>
+      
+          <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      
+          <input type="submit" value="Submit">
+      
+        </form>
+      </div> 
+                 
+         
+        
+        
+        
+      
+    </div>

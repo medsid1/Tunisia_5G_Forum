@@ -1,79 +1,71 @@
 <div class="wrapper">
-                <!-- Sidebar Holder -->
-                <nav id="sidebar">
-                  <div class="sidebar-header">
-                    <div>     
-                    </div>&nbsp;
-                    <div>     
-                    </div>&nbsp;
-                    <div>     
-                    </div>&nbsp;
-                     <h3>
-                        
-                        About Us
-                     </h3>
-                  </div>
-              
-                  <ul class="list-unstyled components">
-                  
-                    <li >
-                      <a >Motivation</a>
-                    </li>
-                   
-                    <li>
-                      <a >Vision</a>
-                    </li>
-                    <li>
-                      <a >Objective</a>
-                    </li>
-                    <li>
-                      <a >Contact Us</a>
-                    </li>
-                    
-                  </ul>
-              
-                  <ul class="list-unstyled CTAs">
-              
-                    <li><a [routerLink]="['/Home']" class="Back">Back To Home</a></li>
-                  </ul>
-                </nav>
-              
-                <!-- Page Content Holder -->
-                <div id="content">
-                    <div>     
-                    </div>&nbsp;
-                    <div>     
-                    </div>&nbsp;
-                    <div>     
-                    </div>&nbsp;
-                 
-              
-              
-                  <h2>Collapsible Sidebar Using Bootstrap 3</h2>
-              
-                  <p class="lead">This pen is a part of a <a href="https://bootstrapious.com/p/bootstrap-sidebar">Bootstrap sidebar tutorial</a> from Bootstrapious.com. CC-BY licensed.</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              
-                  <div class="line"></div>
-              
-                  <h2>Lorem Ipsum Dolor</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              
-                  <div class="line"></div>
-              
-                  <h2>Lorem Ipsum Dolor</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              
-                  <div class="line"></div>
-              
-                  <h3>Lorem Ipsum Dolor</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-              </div>
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <div>     
+        </div>&nbsp;
+        <div>     
+        </div>&nbsp;
+        <div>     
+        </div>&nbsp;
+         <h3>
+            
+            About Us
+         </h3>
+      </div>
+  
+      <ul class="list-unstyled components">
+      
+        <li >
+          <a routerLink="/motivation" style = "background-color: rgb(24, 25, 92);"> 
+          Motivation
+          </a>
+        </li>
+       
+        <li>
+          <a routerLink="/vision"> 
+            Vision        
+          </a>
+        </li>
+        <router-outlet></router-outlet>
+  
+        <li>
+          <a routerLink="/objective">Objective</a>
+        </li>
+  
+        <li>
+          <a routerLink="/contactus">Contact Us</a>
+        </li>
         
+      </ul>
+  
+      <ul class="list-unstyled CTAs">
+  
+        <li><a [routerLink]="['/Home']" class="Back">Back To Home</a></li>
+      </ul>
+    </nav>
+  
+    <!-- Page Content Holder -->
+    <div id="content">
+        <div>     
+        </div>&nbsp;
+        <div>     
+        </div>&nbsp;
+        <div>     
+        </div>&nbsp;
+     
+  
+  
+        <h2 class="heading-primary delimiter-both" style="color:#1e73be;font-size: 32px;font-weight: 700;">Motivation</h2>
+  
+      
+      <p>
+                 
+         
+        
+        
+        The evolution to 5G is expected to be the enabler for new types of services, which will reshape our society. Self-driving cars, artificial intelligence will be part of our daily life to mention some examples. of above major dynamics. As such this evolution will bring new opportunities for businesses making it possible to reposition Tunisian companies as players, which can benefit from opportunities worldwide. In parallel the social impact will be very important. Being in a completely passive role risks to impact our social well being. The question here is how we can correlate the GDP with other development measures like the Happiness Index. It is key that we build a focus group, which can play an active role in shaping our future in the light.</p>
+      <img class="vc_single_image-img " src="https://5gforum.tn/wp-content/uploads/2018/08/motivation-rawpixel-579255-unsplash-800x330.jpg" width="800" height="330" alt="motivation - rawpixel-579255-unsplash" title="motivation - rawpixel-579255-unsplash" />
+  
+      
+    </div>

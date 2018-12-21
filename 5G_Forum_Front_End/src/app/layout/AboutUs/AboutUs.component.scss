@@ -135,7 +135,9 @@ ul.CTAs a {
     border-radius: 5px;
     margin-bottom: 5px;
 }
-
+a.router-link-active {
+    background-color: rgb(24, 25, 92);
+}
 a.download {
     background: #fff;
     color: #7386D5;

@@ -4,11 +4,7 @@ import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HomeRoutingModule } from './Home-routing.module';
 import { HomeComponent } from './Home.component';
-import {
-    TimelineComponent,
-    NotificationComponent,
-    ChatComponent
-} from './components';
+
 import { StatModule } from '../../shared';
 
 @NgModule({
@@ -21,9 +17,7 @@ import { StatModule } from '../../shared';
     ],
     declarations: [
         HomeComponent,
-        TimelineComponent,
-        NotificationComponent,
-        ChatComponent
+        
     ]
 })
 export class HomeModule {}
