@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AuthProvider } from './providers/auth/auth';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,6 +11,9 @@ import { NgxBootstrapSliderModule } from 'ngx-bootstrap-slider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+import { ControleProvider } from './providers/controle/controle';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { MainServiceProvider } from './providers/main-service/main-service';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -28,6 +33,9 @@ export const createTranslateLoader = (http: HttpClient) => {
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        HttpModule,
+        FormsModule,
+        ReactiveFormsModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -38,7 +46,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         AppRoutingModule
     ],
     declarations: [AppComponent],
-    providers: [AuthGuard],
+    providers: [AuthGuard , AuthProvider, ControleProvider , MainServiceProvider ],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

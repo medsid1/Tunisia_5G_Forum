@@ -8,21 +8,21 @@
             <form role="form">
                 <div class="form-content">
                     <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+                        <input type="text" [(ngModel)]="formregister.username" class="form-control input-underline input-lg" id="" placeholder="Username" name="username">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+                        <input type="text"[(ngModel)]="formregister.email" class="form-control input-underline input-lg" id="" placeholder="Email" name="email">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                        <input type="password" [(ngModel)]="formregister.password"class="form-control input-underline input-lg" id="" placeholder="Password" name="password">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                        <input type="password" [(ngModel)]="formregister.confirmepassword" class="form-control input-underline input-lg" id="" placeholder="Repeat Password" name="confirmepassword">
                     </div>
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/Home']"> Register </a>&nbsp;
+                <a class="btn rounded-btn" (click)="signup('/login')" [class.disabled]="!checkSignupDisable()? true : null"> Register </a>&nbsp;
                 <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
             </form>
         </div>

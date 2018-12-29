@@ -8,51 +8,29 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    pushRightClass: string = 'push-right';
-    showMenu : string = '' ;
+    username : any ;
     constructor(private translate: TranslateService, public router: Router) {
-        
-        this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
-        this.translate.setDefaultLang('en');
-        const browserLang = this.translate.getBrowserLang();
-        this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de|zh-CHS/) ? browserLang : 'en');
-
-        this.router.events.subscribe(val => {
-            if (
-                val instanceof NavigationEnd &&
-                window.innerWidth <= 992 &&
-                this.isToggled()
-            ) {
-                this.toggleSidebar();
-            }
-        });
+    this.loaduserdata();    
+       
     }
 
     ngOnInit() {}
 
-    isToggled(): boolean {
-        const dom: Element = document.querySelector('body');
-        return dom.classList.contains(this.pushRightClass);
-    }
+    loaduserdata(){
 
-    toggleSidebar() {
-        const dom: any = document.querySelector('body');
-        dom.classList.toggle(this.pushRightClass);
-    }
-
-    addExpandClass(element: any) {
-        if (element === this.showMenu) {
-            this.showMenu = '0';
-        } else {
-            this.showMenu = element;
-        }
+       
+        this.username = JSON.parse(localStorage.getItem('userjwt')).name.toString().replace(/"/gi, "");
+        
+        
     }
 
     onLoggedout() {
-        localStorage.removeItem('isLoggedin');
+        localStorage.removeItem('useraccesstoken');
+        localStorage.removeItem('userrefreshtoken');
+        localStorage.removeItem('useremail');
+        localStorage.removeItem('userpassword');
+        localStorage.removeItem('userjwt');
     }
 
-    changeLang(language: string) {
-        this.translate.use(language);
-    }
+    
 }

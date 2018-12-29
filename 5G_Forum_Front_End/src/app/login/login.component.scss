@@ -93,3 +93,8 @@ $topnav-background-color: #222;
         border: 2px solid #fff;
     }
 }
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+ }
+ 

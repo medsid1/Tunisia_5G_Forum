@@ -8,16 +8,16 @@
             <form role="form">
                 <div class="form-content">
                     <div class="form-group">
-                        <input type="text" ng-model="name" class="form-control input-underline input-lg" id="" placeholder="Email">
+                        <input type="text" [(ngModel)]="data.email" class="form-control input-underline input-lg" id="" placeholder="Email" name="Email">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                        <input type="password" [(ngModel)]="data.password"  class="form-control input-underline input-lg" id="" placeholder="Password" name="Password">
                     </div>
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/Home']" (click)="onLoggedin()"> Log in </a>
+                <a class="btn rounded-btn"  (click)="signin('/Home')" [class.disabled]="!checkLoginDisable()? true : null" > Log in </a>
                 &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
+                <a class="btn rounded-btn" [routerLink]="['/signup']" (click)="onLoggedin()" >Register</a>
             </form>
         </div>
     </div>

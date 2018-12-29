@@ -38,6 +38,12 @@ const routes: Routes = [
 
 
             { path: 'CaseStudies', loadChildren: './CaseStudies/CaseStudies.module#CaseStudiesModule' },
+            { path: 'healthcare', loadChildren: './CaseStudies/healthcare/healthcare.module#HealthcareModule' },
+            { path: 'agriculture', loadChildren: './CaseStudies/agriculture/agriculture.module#AgricultureModule' },
+            { path: 'education', loadChildren: './CaseStudies/education/education.module#EducationModule' },
+            { path: 'entertainment', loadChildren: './CaseStudies/entertainment/entertainment.module#EntertainmentModule' },
+            { path: 'manufacturing', loadChildren: './CaseStudies/manufacturing/manufacturing.module#ManufacturingModule' },
+            { path: 'automative', loadChildren: './CaseStudies/automative/automative.module#AutomativeModule' },
            
             
 

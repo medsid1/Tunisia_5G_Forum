@@ -1,0 +1,83 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <div>     
+      </div>&nbsp;
+      <div>     
+      </div>&nbsp;
+      <div>     
+      </div>&nbsp;
+       <h3>
+          
+          Case Studies
+       </h3>
+    </div>
+
+    <ul class="list-unstyled components">
+    
+      <li >
+        <a routerLink="/healthcare"  >Healthcare</a>
+      </li>
+     
+      <li>
+        <a routerLink="/agriculture">Agriculture</a>
+      </li>
+
+      <li>
+        <a routerLink="/education" >Education</a>
+      </li>
+      <li>
+        <a routerLink="/entertainment" >Entertainment</a>
+      </li>
+      <li>
+        <a routerLink="/manufacturing" style = "background-color: rgb(24, 25, 92);">Manufacturing</a>
+      </li> 
+      <li>
+        <a routerLink="/automative">Automative</a>
+      </li>
+      
+      
+      
+    </ul>
+
+    <ul class="list-unstyled CTAs">
+
+      <li><a [routerLink]="['/Home']" class="Back">Back To Home</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+      <div>     
+      </div>&nbsp;
+      <div>     
+      </div>&nbsp;
+      <div>     
+      </div>&nbsp;
+   
+
+
+      <h2 class="heading-primary delimiter-both" style="color:#1e73be;font-size: 32px;font-weight: 700;">Manufacturing</h2>
+      <div>
+        </div>&nbsp;
+        <div>     
+        </div>&nbsp;
+        
+          <ul>
+            <li *ngFor="let item of items">
+              <div>
+                <h1 style="color:#122f49;font-size: 25px;font-weight: 700;">{{item._source.title}}</h1>
+            
+    
+                <p>
+                    {{item._source.data}}
+                </p>
+              </div> 
+                <div>     
+                  </div>&nbsp;
+            </li>
+           
+          </ul>
+        </div>
+</div>
