@@ -1,76 +1,161 @@
+<hr style="background-color:#6d7fcc; height: 10px; size: 40px; margin-bottom: 0% ; margin-top : 0%">
+<ngb-carousel>
+    <ng-template ngbSlide *ngFor="let slider of sliders">
+        <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" max-height="500px"
+            width="100%">
+        <div class="carousel-caption">
+            <h3 style="color: rgb(236, 127, 127); font-size: 40px">{{slider.label}}</h3>
+            <p style="color: rgb(245, 10, 10); font-size: 15px; background-color: darkgrey">{{slider.text}}</p>
+        </div>
+    </ng-template>
+</ngb-carousel>
+<hr style="background-color:#6d7fcc; height: 10px; size: 40px; margin-bottom: 0% ; margin-top : 0%">
+
 <div class="col-md-12">
 
+
+
+
+
     
-        
-        <ngb-carousel>
-            <ng-template ngbSlide *ngFor="let slider of sliders">
-                    <div class="carousel-caption">
-                            <h3>{{slider.label}}</h3>
-                            <p>{{slider.text}}</p>
+
+
+    <div class="row" style="background-color: rgb(204, 201, 201)">
+
+        <!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+
+            <h1 style="color: #204458; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; ">5G
+                News</h1>
+            <div class="list-group">
+                <ul style="padding: 0;">
+                    <li *ngFor="let item of items1" style="list-style-type: none; list-style:none;background-color: #ffffff;
+                                    border-color :  #abb9d3;
+                                    background-size: cover;
+                                    border-style: groove;
+                                    border-width: 7px;
+                                    max-height: 230px;
+                                    max-width: 100%;
+                                    margin-bottom: 0%; 
+                                    margin : 0;
+                                    padding :0 ;
+                                    position: relative;
+                                    text-transform: uppercase;
+                                    
+                                    
+                                    ">
+                        <div>
+                            <h1 style="color:#122f49;font-size: 15px; font-weight: 700; margin-left:10px"> 
+                                <i class="fa fa-500px" style="font-size: 25px; color:white; margin-left: 5px; margin-top:5px;
+                                background-color: rgb(211, 62, 82);
+                                border-radius: 30%;
+                                border: 1x solid grey;
+                                padding:10px;"></i>
+                                {{item._source.title}}
+                                </h1>
+                                <h1 style="color:#122f49;font-size: 12px; font-weight: 700; margin-left:15px"> [{{item._source.type}}] </h1>
+                            <h1 style="color:#3e4449;font-size: 10px;font-weight: 700; margin-left:15px"> {{item._source.source}}</h1>
+                            <h1 style="color:#216eb1;font-size: 10px;font-weight: 700; margin-left:15px">(Published On
+                                {{item._source.date}})</h1>
+
+
+
+                            <p style="margin-left:15px">
+                                {{item._source.data}}
+                            </p>
+                            <div>
+                            </div>&nbsp;
+                            <a href="{{item._source.link}}" style="color:cornflowerblue; margin-left:15px">Read More</a>
                         </div>
-                <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
-                
-            </ng-template>
-        </ngb-carousel>
 
-        <div id="content">
-                <div>     
-                </div>&nbsp;
-                <div>     
-                </div>&nbsp;
-                <div>     
-                </div>&nbsp;
-             
-          
-          
+                    </li>
 
-                <div class="row">
-                        
-                        <!-- /.col-sm-4 -->
-                        <div class="col-sm-6">
+                </ul>
 
-                        <h1>5G News</h1>
-                            <div class="list-group">
-                                <a href="javascript:void(0)" class="list-group-item ">
-                                    <h4 class="list-group-item-heading">List group item heading</h4>
-                                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                </a>
-                                <a href="javascript:void(0)" class="list-group-item">
-                                    <h4 class="list-group-item-heading">List group item heading</h4>
-                                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                </a>
-                                <a href="javascript:void(0)" class="list-group-item">
-                                    <h4 class="list-group-item-heading">List group item heading</h4>
-                                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- /.col-sm-4 -->
-                       
-                               <!-- /.col-sm-4 -->
 
-                        
-                        <div class="col-sm-6">
-                                <h1>Social Media</h1>
-                                <div class="list-group">
-                                    <a href="javascript:void(0)" class="list-group-item ">
-                                        <h4 class="list-group-item-heading">List group item heading</h4>
-                                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                    </a>
-                                    <a href="javascript:void(0)" class="list-group-item">
-                                        <h4 class="list-group-item-heading">List group item heading</h4>
-                                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                    </a>
-                                    <a href="javascript:void(0)" class="list-group-item">
-                                        <h4 class="list-group-item-heading">List group item heading</h4>
-                                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- /.col-sm-4 -->
-                    </div>
             </div>
-    
+        </div>
+        <!-- /.col-sm-4 -->
+        <div class="col-sm-4 hero-image">
+
+
+        </div>
+        <!-- /.col-sm-4 -->
+
+        <div class="col-sm-4">
+
+            <h1 style="color: #204458; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; ">Social
+                Media</h1>
+            <div class="list-group" style="margin-left: 0;">
+
+
+                <ul style="padding: 0;">
+                    <li *ngFor="let item of items2" style="list-style-type: none; list-style:none;background-color: #ffffff;
+                                                border-color :  #abb9d3;
+                                                background-size: cover;
+                                                border-style: groove;
+                                                border-width: 7px;
+                                                max-height: 230px;
+                                                max-width: 100%;
+                                                margin-bottom: 0%; 
+                                                margin : 0;
+                                                padding :0 ;
+                                                position: relative;
+                                                text-transform: uppercase;
+                                                
+                                                
+                                                ">
+                        <div>
+                            <h1 style="color:#122f49;font-size: 15px; font-weight: 700;"> <i class="fa fa-{{item._source.source}}"
+                                    style="font-size: 25px; color:white; margin-left: 5px; margin-top:5px;
+                                                    background-color: rgb(90, 90, 216);
+                                                    border-radius: 30%;
+                                                    border: 1x solid grey;
+                                                    padding:10px;"></i>
+                                {{item._source.title}} </h1>
+                                <h1 style="color:#122f49;font-size: 12px; font-weight: 700; margin-left:15px"> [{{item._source.type}}] </h1>
+                            <h1 style="color:#0864b4;font-size: 10px;font-weight: 700; margin-left:15px">(Published On
+                                {{item._source.date}})</h1>
+
+
+
+                            <p style="margin-left:15px">
+                                {{item._source.data}}
+                            </p>
+                            <div>
+                            </div>&nbsp;
+                            <a href="{{item._source.link}}" style="color:cornflowerblue; margin-left:15px">Read More</a>
+                        </div>
+
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+        <!-- /.col-sm-4 -->
+
+        <!-- /.col-sm-4 -->
+
+        <!-- /.col-sm-4 -->
+    </div>
+
+
 </div>
 
+<section class="widget widget_blog_subscription">
+    <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog">
+        <p>Subscribe to our newsletter.</p>
+        <p>
+            <input type="text" name="email" style="width: 95%; padding: 1px 2px" placeholder="Enter your full name"
+                value="" id="subscribe-field">
+            <input type="text" name="email" style="width: 95%; padding: 1px 2px" placeholder="Enter your email address"
+                value="" id="subscribe-field">
 
+        </p>
+        <p>
+            <input type="submit" value="Submit">
+        </p>
+    </form>
+</section>

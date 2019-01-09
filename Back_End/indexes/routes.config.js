@@ -13,22 +13,86 @@ exports.routesConfig = function (app) {
 
     app.get('/indexes/casestudies/healthcare', [
 
-        AuthorizationValidation.validJWTNeeded,
+       // AuthorizationValidation.validJWTNeeded,
         searching.gethealthcarecasestudies
         
     ]);
 
     app.get('/indexes/casestudies/agriculture', [
 
-        AuthorizationValidation.validJWTNeeded,
+        //AuthorizationValidation.validJWTNeeded,
         searching.getagriculturecasestudies
         
     ]);
     app.get('/indexes/casestudies/education', [
         
-        AuthorizationValidation.validJWTNeeded,
+        //AuthorizationValidation.validJWTNeeded,
         searching.geteducationcasestudies
         
     ]);
+    app.get('/indexes/casestudies/entertainment', [
+
+        //AuthorizationValidation.validJWTNeeded,
+        searching.getentertainmentcasestudies
+        
+    ]);
+
+    app.get('/indexes/casestudies/manufacturing', [
+
+        //AuthorizationValidation.validJWTNeeded,
+        searching.getmanufacturingcasestudies
+        
+    ]);
+    app.get('/indexes/casestudies/automative', [
+        
+        //AuthorizationValidation.validJWTNeeded,
+        searching.getautomativecasestudies
+        
+    ]);
     
+    app.get('/indexes/news', [
+        
+        //AuthorizationValidation.validJWTNeeded,
+        searching.getnews
+        
+    ]);
+    app.get('/indexes/socialmedia', [
+        
+        //AuthorizationValidation.validJWTNeeded,
+        searching.getsocialmedia
+        
+    ]);
+
+    app.get('/indexes/pastevents', [
+        
+        //AuthorizationValidation.validJWTNeeded,
+        searching.getpastevents
+        
+    ]);
+    app.get('/indexes/upcomingevents', [
+        
+        //AuthorizationValidation.validJWTNeeded,
+        searching.getupcomingevents
+        
+    ]);
+
+    app.get('/indexes/5gservices', [
+        
+        //AuthorizationValidation.validJWTNeeded,
+        searching.get5gservices
+        
+    ]);
+    app.get('/indexes/videos', [
+        
+        //AuthorizationValidation.validJWTNeeded,
+        searching.getvideos
+        
+    ]);
+
+    app.get('/indexes/whitepapers', [
+        
+        //AuthorizationValidation.validJWTNeeded,
+        searching.getwhitepapers
+        
+    ]);
 };

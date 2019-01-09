@@ -1,11 +1,12 @@
-import { Component, OnInit , EventEmitter, Output } from '@angular/core';
+import { Component, OnInit , EventEmitter, Output , ViewEncapsulation } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-
+import { MainServiceProvider } from '../../providers/main-service/main-service';
 
 @Component({
     selector: 'app-Home',
     templateUrl: './Home.component.html',
     styleUrls: ['./Home.component.scss'],
+
     animations: [routerTransition()]
 })
 export class HomeComponent implements OnInit {
@@ -18,99 +19,78 @@ export class HomeComponent implements OnInit {
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
 
-
-
+    selectedIndex: number;
+    transform: number;
+    public items1 : any ;
+    public items2 : any ;
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
     public dashboard : boolean ;
-    constructor() {
+    constructor(private mainServiceProvider: MainServiceProvider) {
+
+
+        this.loadnewsData();
+        this.loadsocialmediaData();
+        this.selectedIndex = 0;
+    this.transform = 100;
         this.dashboard = true;
         this.sliders.push(
             {
-                imagePath: 'assets/images/slider1.jpg',
-                label: 'First slide label',
+                imagePath: 'assets/img/slider/network-3537401_1280.jpg',
+                label: 'Towords The Fourth Industrial Revolution',
                 text:
-                    'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+                    '5G is expected to be a key enabler for the transition towords tomorrows technologies like industry 4.0'
+            },
+           
+            {
+                imagePath:  'assets/img/slider/team-3373638_1280.jpg',
+                label: 'Shaping Our Future Together',
+                text:
+                    'We play an active role in the light of the upcoming revolution to 5G,where new types of services will reshape our society.',
+                    
             },
             {
-                imagePath: 'assets/images/slider2.jpg',
-                label: 'Second slide label',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                imagePath: 'assets/img/slider/beverage-3157395_1280.jpg',
+                label: 'Promoting 5G services and technologies in years around 2020 and beyond',
+                text: 'Tunisian 5G Forum is a common ground, where players of the Tunisian ICT ecosystem work together to achieve the vision of tomorrow along with their peers worldwide.',
+              
+
             },
-            {
-                imagePath: 'assets/images/slider3.jpg',
-                label: 'Third slide label',
-                text:
-                    'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
-            }
         );
 
-        this.alerts.push(
-            {
-                id: 1,
-                type: 'success',
-                message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-                consectetur velit culpa molestias dignissimos
-                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
-            },
-            {
-                id: 2,
-                type: 'warning',
-                message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-                consectetur velit culpa molestias dignissimos
-                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
-            }
-        );
+
+        
     }
-
+    
     ngOnInit() {}
-
-    public closeAlert(alert: any) {
-        const index: number = this.alerts.indexOf(alert);
-        this.alerts.splice(index, 1);
-    }
-
-
-
-
-
-
-    eventCalled() {
-        this.isActive = !this.isActive;
-    }
-
-    addExpandClass(element: any) {
-        if (element === this.showMenu) {
-            this.showMenu = '0';
-        } else {
-            this.showMenu = element;
-        }
-    }
-
-    toggleCollapsed() {
-        this.collapsed = !this.collapsed;
-        this.collapsedEvent.emit(this.collapsed);
-    }
-
-    isToggled(): boolean {
-        const dom: Element = document.querySelector('body');
-        return dom.classList.contains(this.pushRightClass);
-    }
-
-    toggleSidebar() {
-        const dom: any = document.querySelector('body');
-        dom.classList.toggle(this.pushRightClass);
-    }
-
-    rltAndLtr() {
-        const dom: any = document.querySelector('body');
-        dom.classList.toggle('rtl');
-    }
-
+    loadnewsData(){
    
+        this.mainServiceProvider.loadnewsData()
+        .then(data => {
+    
+          let newsindexdata = localStorage.getItem('indexnews')
+          this.items1 =JSON.parse(newsindexdata).result; 
+          console.log(this.items1)
+          localStorage.removeItem('indexnews');
+        }),(err) => {
+              console.log("Erreur");
+        };
+      }
 
+    loadsocialmediaData(){
+   
+        this.mainServiceProvider.loadsocialmediaData()
+        .then(data => {
+    
+          let socialmediaindexdata = localStorage.getItem('indexsocialmedia')
+          this.items2 =JSON.parse(socialmediaindexdata).result; 
+          console.log(this.items2)
+          localStorage.removeItem('indesocialmedia');
+        }),(err) => {
+              console.log("Erreur");
+        };
+      }
+  
     onLoggedout() {
         localStorage.removeItem('isLoggedin');
     }

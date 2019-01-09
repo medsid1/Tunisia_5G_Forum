@@ -1,40 +1,13 @@
-$topnav-background-color: rgb(255, 255, 255);
+
 :host {
     .navbar {
-        background-color: $topnav-background-color;
-        .navbar-brand {
-            color: rgb(73, 69, 69);
-        }
-        .nav-item > a {
-            color: rgb(27, 23, 23);
-            &:hover {
-                color: rgb(114, 102, 102);
-                
-            }
-        }
+        background-image: url("assets/img/slider/headerimage.png");
+        min-height: 260px;
+        background-size: cover;
+       
+       
 
     }
-    .messages {
-        width: 300px;
-        .media {
-            border-bottom: 1px solid #ddd;
-            padding: 5px 10px;
-            &:last-child {
-                border-bottom: none;
-            }
-        }
-        .media-body {
-            h5 {
-                font-size: 13px;
-                font-weight: 600;
-            }
-            .small {
-                margin: 0;
-            }
-            .last {
-                font-size: 12px;
-                margin: 0;
-            }
-        }
-    }
+ 
+    
 }

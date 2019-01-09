@@ -1,13 +1,9 @@
+<hr style="background-color:#6d7fcc; height: 10px; size: 40px; margin-bottom: 0%" >
 <div class="wrapper">
     <!-- Sidebar Holder -->
     <nav id="sidebar">
       <div class="sidebar-header">
-        <div>     
-        </div>&nbsp;
-        <div>     
-        </div>&nbsp;
-        <div>     
-        </div>&nbsp;
+       
          <h3>
             
             5G
@@ -25,9 +21,7 @@
         <li>
           <a routerLink="/5gwhitepapers">White Papers</a>
         </li>
-        <li>
-          <a routerLink="/5gservices">5G Services</a>
-        </li>
+      
         <li>
           <a routerLink="/5gvideos">Videos</a>
         </li>
@@ -41,17 +35,36 @@
   
     <!-- Page Content Holder -->
     <div id="content">
-        <div>     
-        </div>&nbsp;
-        <div>     
-        </div>&nbsp;
-        <div>     
-        </div>&nbsp;
-     
+   
   
   
       <h2 class="heading-primary delimiter-both" style="color:#1e73be;font-size: 32px;font-weight: 700;">5G News</h2>
+      <div>
+      </div>&nbsp;
+      <div>     
+      </div>&nbsp;
+      
+        <ul>
+          <li *ngFor="let item of items">
+            <div>
+              <h1 style="color:#122f49;font-size: 25px;font-weight: 700;">{{item._source.title}}  [{{item._source.type}}]</h1>
+              <h1 style="color:#3e4449;font-size: 15px;font-weight: 700;">{{item._source.source}}</h1>
+              <h1 style="color:#216eb1;font-size: 15px;font-weight: 700;">(Published On {{item._source.date}})</h1>
+              
+          
   
+              <p>
+                  {{item._source.data}}
+              </p>
+              <div>     
+              </div>&nbsp;
+              <a href="{{item._source.link}}" style="color:cornflowerblue">Read More</a>
+            </div> 
+              <div>     
+                </div>&nbsp;
+          </li>
+         
+        </ul>
       
     </div>
   </div>

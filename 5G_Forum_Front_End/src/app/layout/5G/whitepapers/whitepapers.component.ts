@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MainServiceProvider } from '../../../providers/main-service/main-service';
+
 
 @Component({
   selector: 'app-Whitepapers',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WhitepapersComponent implements OnInit {
 
-  constructor() { }
+
+  public items : any ;
+  constructor(private mainServiceProvider: MainServiceProvider) { 
+
+    this.loadwhitepapersData();
+  }
 
   ngOnInit() {
   }
+  loadwhitepapersData(){
+   
+    this.mainServiceProvider.loadwhitepapersData()
+    .then(data => {
 
+      let whitepapersdexdata = localStorage.getItem('indexwhitepapers')
+      this.items =JSON.parse(whitepapersdexdata).result; 
+      console.log(this.items)
+      localStorage.removeItem('indexwhitepapers');
+    }),(err) => {
+          console.log("Erreur");
+    };
+  }
 }

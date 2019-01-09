@@ -18,9 +18,9 @@ export class HeaderComponent implements OnInit {
 
     loaduserdata(){
 
-       
+       if(localStorage.getItem('userjwt')){
         this.username = JSON.parse(localStorage.getItem('userjwt')).name.toString().replace(/"/gi, "");
-        
+       }
         
     }
 

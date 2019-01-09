@@ -27,13 +27,7 @@ export class MainServiceProvider {
     ////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
     loadhealthcareData() {
 
-        let data1 = localStorage.getItem('useraccesstoken');
-        let data2 = localStorage.getItem('userrefreshtoken');
-        let data3 = localStorage.getItem('useremail');
-        let data4 = localStorage.getItem('userpassword');
-        let data5 = localStorage.getItem('userjwt');
-
-        if (data1 || data2 || data3 || data4 || data5) {
+     
 
             let link = this.link + "/indexes/casestudies/healthcare";
 
@@ -41,31 +35,9 @@ export class MainServiceProvider {
                 let headers = new Headers();
                 headers.append('Content-Type', 'application/json');
 
-                let refresh = {
-                    refresh_token: JSON.parse(data2),
-                    jwt: JSON.parse(data5)
-                }
-                var now = Math.floor(Date.now() / 1000);
-                if (now >= (parseInt(JSON.parse(data5).exp) - 200)) {
-
-                    this.http.post(this.link + "/auth/refresh", refresh, { headers: headers })
-                        .map(res => res.json())
-                        .subscribe(
-                            data => {
-                                resolve(data)
-                                console.log(typeof data)
-                                if (data.changed == true) {
-                                    localStorage.setItem('useraccesstoken', JSON.stringify(data.access_token));
-                                    localStorage.setItem('userjwt', JSON.stringify(data.jwt));
-                                }
-                            },
-                            error => {
-                                resolve(error)
-                                console.log(error)
-                            }
-                        )
-                }
-                headers.append('authorization', 'Bearer' + ' ' + data1);
+              
+                     
+               
                 console.log(headers)
                 this.http.get(link, { headers: headers })
                     .map(res => res.json())
@@ -77,7 +49,7 @@ export class MainServiceProvider {
                         }
                     );
             });
-        }
+        
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
@@ -85,13 +57,7 @@ export class MainServiceProvider {
 ////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
 loadentertainmentData() {
 
-    let data1 = localStorage.getItem('useraccesstoken');
-    let data2 = localStorage.getItem('userrefreshtoken');
-    let data3 = localStorage.getItem('useremail');
-    let data4 = localStorage.getItem('userpassword');
-    let data5 = localStorage.getItem('userjwt');
-
-    if (data1 || data2 || data3 || data4 || data5) {
+ 
 
         let link = this.link + "/indexes/casestudies/entertainment";
 
@@ -99,31 +65,7 @@ loadentertainmentData() {
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
 
-            let refresh = {
-                refresh_token: JSON.parse(data2),
-                jwt: JSON.parse(data5)
-            }
-            var now = Math.floor(Date.now() / 1000);
-            if (now >= (parseInt(JSON.parse(data5).exp) - 200)) {
-
-                this.http.post(this.link + "/auth/refresh", refresh, { headers: headers })
-                    .map(res => res.json())
-                    .subscribe(
-                        data => {
-                            resolve(data)
-                            console.log(typeof data)
-                            if (data.changed == true) {
-                                localStorage.setItem('useraccesstoken', JSON.stringify(data.access_token));
-                                localStorage.setItem('userjwt', JSON.stringify(data.jwt));
-                            }
-                        },
-                        error => {
-                            resolve(error)
-                            console.log(error)
-                        }
-                    )
-            }
-            headers.append('authorization', 'Bearer' + ' ' + data1);
+          
             console.log(headers)
             this.http.get(link, { headers: headers })
                 .map(res => res.json())
@@ -135,7 +77,7 @@ loadentertainmentData() {
                     }
                 );
         });
-    }
+    
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
@@ -143,45 +85,13 @@ loadentertainmentData() {
 ////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
 loadmanufacturingData() {
 
-    let data1 = localStorage.getItem('useraccesstoken');
-    let data2 = localStorage.getItem('userrefreshtoken');
-    let data3 = localStorage.getItem('useremail');
-    let data4 = localStorage.getItem('userpassword');
-    let data5 = localStorage.getItem('userjwt');
-
-    if (data1 || data2 || data3 || data4 || data5) {
-
         let link = this.link + "/indexes/casestudies/manufacturing";
 
         return new Promise(resolve => {
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
 
-            let refresh = {
-                refresh_token: JSON.parse(data2),
-                jwt: JSON.parse(data5)
-            }
-            var now = Math.floor(Date.now() / 1000);
-            if (now >= (parseInt(JSON.parse(data5).exp) - 200)) {
-
-                this.http.post(this.link + "/auth/refresh", refresh, { headers: headers })
-                    .map(res => res.json())
-                    .subscribe(
-                        data => {
-                            resolve(data)
-                            console.log(typeof data)
-                            if (data.changed == true) {
-                                localStorage.setItem('useraccesstoken', JSON.stringify(data.access_token));
-                                localStorage.setItem('userjwt', JSON.stringify(data.jwt));
-                            }
-                        },
-                        error => {
-                            resolve(error)
-                            console.log(error)
-                        }
-                    )
-            }
-            headers.append('authorization', 'Bearer' + ' ' + data1);
+           
             console.log(headers)
             this.http.get(link, { headers: headers })
                 .map(res => res.json())
@@ -193,20 +103,14 @@ loadmanufacturingData() {
                     }
                 );
         });
-    }
+    
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
 ////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
 loadeducationData() {
 
-    let data1 = localStorage.getItem('useraccesstoken');
-    let data2 = localStorage.getItem('userrefreshtoken');
-    let data3 = localStorage.getItem('useremail');
-    let data4 = localStorage.getItem('userpassword');
-    let data5 = localStorage.getItem('userjwt');
-
-    if (data1 || data2 || data3 || data4 || data5) {
+    
 
         let link = this.link + "/indexes/casestudies/education";
 
@@ -214,31 +118,7 @@ loadeducationData() {
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
 
-            let refresh = {
-                refresh_token: JSON.parse(data2),
-                jwt: JSON.parse(data5)
-            }
-            var now = Math.floor(Date.now() / 1000);
-            if (now >= (parseInt(JSON.parse(data5).exp) - 200)) {
-
-                this.http.post(this.link + "/auth/refresh", refresh, { headers: headers })
-                    .map(res => res.json())
-                    .subscribe(
-                        data => {
-                            resolve(data)
-                            console.log(typeof data)
-                            if (data.changed == true) {
-                                localStorage.setItem('useraccesstoken', JSON.stringify(data.access_token));
-                                localStorage.setItem('userjwt', JSON.stringify(data.jwt));
-                            }
-                        },
-                        error => {
-                            resolve(error)
-                            console.log(error)
-                        }
-                    )
-            }
-            headers.append('authorization', 'Bearer' + ' ' + data1);
+          
             console.log(headers)
             this.http.get(link, { headers: headers })
                 .map(res => res.json())
@@ -250,7 +130,7 @@ loadeducationData() {
                     }
                 );
         });
-    }
+    
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
@@ -258,13 +138,7 @@ loadeducationData() {
 ////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
 loadautomativeData() {
 
-    let data1 = localStorage.getItem('useraccesstoken');
-    let data2 = localStorage.getItem('userrefreshtoken');
-    let data3 = localStorage.getItem('useremail');
-    let data4 = localStorage.getItem('userpassword');
-    let data5 = localStorage.getItem('userjwt');
-
-    if (data1 || data2 || data3 || data4 || data5) {
+    
 
         let link = this.link + "/indexes/casestudies/automative";
 
@@ -272,31 +146,7 @@ loadautomativeData() {
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
 
-            let refresh = {
-                refresh_token: JSON.parse(data2),
-                jwt: JSON.parse(data5)
-            }
-            var now = Math.floor(Date.now() / 1000);
-            if (now >= (parseInt(JSON.parse(data5).exp) - 200)) {
-
-                this.http.post(this.link + "/auth/refresh", refresh, { headers: headers })
-                    .map(res => res.json())
-                    .subscribe(
-                        data => {
-                            resolve(data)
-                            console.log(typeof data)
-                            if (data.changed == true) {
-                                localStorage.setItem('useraccesstoken', JSON.stringify(data.access_token));
-                                localStorage.setItem('userjwt', JSON.stringify(data.jwt));
-                            }
-                        },
-                        error => {
-                            resolve(error)
-                            console.log(error)
-                        }
-                    )
-            }
-            headers.append('authorization', 'Bearer' + ' ' + data1);
+          
             console.log(headers)
             this.http.get(link, { headers: headers })
                 .map(res => res.json())
@@ -308,7 +158,7 @@ loadautomativeData() {
                     }
                 );
         });
-    }
+    
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
@@ -317,45 +167,14 @@ loadautomativeData() {
 ////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
 loadagricultureData() {
 
-    let data1 = localStorage.getItem('useraccesstoken');
-    let data2 = localStorage.getItem('userrefreshtoken');
-    let data3 = localStorage.getItem('useremail');
-    let data4 = localStorage.getItem('userpassword');
-    let data5 = localStorage.getItem('userjwt');
-
-    if (data1 || data2 || data3 || data4 || data5) {
-
+  
         let link = this.link + "/indexes/casestudies/agriculture";
 
         return new Promise(resolve => {
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
 
-            let refresh = {
-                refresh_token: JSON.parse(data2),
-                jwt: JSON.parse(data5)
-            }
-            var now = Math.floor(Date.now() / 1000);
-            if (now >= (parseInt(JSON.parse(data5).exp) - 200)) {
-
-                this.http.post(this.link + "/auth/refresh", refresh, { headers: headers })
-                    .map(res => res.json())
-                    .subscribe(
-                        data => {
-                            resolve(data)
-                            console.log(typeof data)
-                            if (data.changed == true) {
-                                localStorage.setItem('useraccesstoken', JSON.stringify(data.access_token));
-                                localStorage.setItem('userjwt', JSON.stringify(data.jwt));
-                            }
-                        },
-                        error => {
-                            resolve(error)
-                            console.log(error)
-                        }
-                    )
-            }
-            headers.append('authorization', 'Bearer' + ' ' + data1);
+           
             console.log(headers)
             this.http.get(link, { headers: headers })
                 .map(res => res.json())
@@ -367,7 +186,210 @@ loadagricultureData() {
                     }
                 );
         });
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+loadnewsData() {
+
+   
+
+        let link = this.link + "/indexes/news";
+
+        return new Promise(resolve => {
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            
+            console.log(headers)
+            this.http.get(link, { headers: headers })
+                .map(res => res.json())
+                .subscribe(data => {
+                    resolve(data);
+                    localStorage.setItem('indexnews', JSON.stringify(data));
+                }
+                    , (err) => {
+                    }
+                );
+        });
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+loadsocialmediaData() {
+
+   
+
+        let link = this.link + "/indexes/socialmedia";
+
+        return new Promise(resolve => {
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+           
+            console.log(headers)
+            this.http.get(link, { headers: headers })
+                .map(res => res.json())
+                .subscribe(data => {
+                    resolve(data);
+                    localStorage.setItem('indexsocialmedia', JSON.stringify(data));
+                }
+                    , (err) => {
+                    }
+                );
+        });
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+loadpasteventsData() {
+
+   
+        let link = this.link + "/indexes/pastevents";
+
+        return new Promise(resolve => {
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+           
+            console.log(headers)
+            this.http.get(link, { headers: headers })
+                .map(res => res.json())
+                .subscribe(data => {
+                    resolve(data);
+                    localStorage.setItem('indexpastevents', JSON.stringify(data));
+                }
+                    , (err) => {
+                    }
+                );
+        });
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+loadupcomingeventsData() {
+
+    
+
+        let link = this.link + "/indexes/upcomingevents";
+
+        return new Promise(resolve => {
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            console.log(headers)
+            this.http.get(link, { headers: headers })
+                .map(res => res.json())
+                .subscribe(data => {
+                    resolve(data);
+                    localStorage.setItem('indexdata', JSON.stringify(data));
+                }
+                    , (err) => {
+                    }
+                );
+        });
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+load5gservicesData() {
+
+  
+
+        let link = this.link + "/indexes/5gservices";
+
+        return new Promise(resolve => {
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+           
+            console.log(headers)
+            this.http.get(link, { headers: headers })
+                .map(res => res.json())
+                .subscribe(data => {
+                    resolve(data);
+                    localStorage.setItem('indexdata', JSON.stringify(data));
+                }
+                    , (err) => {
+                    }
+                );
+        });
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+loadvideosData() {
+
+  
+        let link = this.link + "/indexes/videos";
+
+        return new Promise(resolve => {
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+          
+            console.log(headers)
+            this.http.get(link, { headers: headers })
+                .map(res => res.json())
+                .subscribe(data => {
+                    resolve(data);
+                    localStorage.setItem('indexvideos', JSON.stringify(data));
+                }
+                    , (err) => {
+                    }
+                );
+        });
     }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+loadwhitepapersData() {
+
+        let link = this.link + "/indexes/whitepapers";
+
+        return new Promise(resolve => {
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            
+            console.log(headers)
+            this.http.get(link, { headers: headers })
+                .map(res => res.json())
+                .subscribe(data => {
+                    resolve(data);
+                    localStorage.setItem('indexwhitepapers', JSON.stringify(data));
+                }
+                    , (err) => {
+                    }
+                );
+        });
+    
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
