@@ -150,9 +150,8 @@ def data_fetcher():
     res = es.search(index="mining_links", body={"size" : 10000,"query": {"match_all": {}}})
     Links=[]
     for doc in res['hits']['hits']:
-        
         i = str(doc['_source']['link'])
-        Links.append(i[2:])
+        Links.append(i)
         
         
     for i in Links:
@@ -370,7 +369,7 @@ def classification1_sub_job(classification_data,Titles,Images,Date):
         data_replaced = []
         content_str = beautify_word(str(data))
         content_words = content_str.split(" ")
-        #print(content_words)
+        print(content_words)
         content_replaced = []
         for content_word in content_words:
               
@@ -465,8 +464,6 @@ def classification1_sub_job(classification_data,Titles,Images,Date):
            for j in classification_data[i]:
                elem = elem + j
            #print(elem)
-           print("#########################################################################################")
-           print("Classification 1 Process ............................................................... ")
            elem = replace_data(elem)
            print(i)
            prediction = model.predict(elem,verbose=0)
@@ -542,7 +539,7 @@ def classification2_sub_job(classification_data, Titles, Images, link, Documents
         x_replaced = x_to_vect(x_loaded)
         y_replaced = y_to_vect(y_loaded)
 
-        return x_replaced[0:348], y_replaced[0:348]
+        return x_replaced, y_replaced
 
 
     def x_to_vect(x_loaded):
@@ -577,7 +574,7 @@ def classification2_sub_job(classification_data, Titles, Images, link, Documents
         data_replaced = []
         content_str = beautify_word(str(data))
         content_words = content_str.split(" ")
-        #print(content_words)
+        print(content_words)
         content_replaced = []
         for content_word in content_words:
                
@@ -590,7 +587,7 @@ def classification2_sub_job(classification_data, Titles, Images, link, Documents
         
         data_replaced.append(content_replaced)
             
-        #print(data_replaced)
+        print(data_replaced)
         data_replaced=sequence.pad_sequences(data_replaced, maxlen=maxlen)
         
              
@@ -631,27 +628,17 @@ def classification2_sub_job(classification_data, Titles, Images, link, Documents
 
     max_features = len(word_dictionary)
 
-    y_helthcare = list(filter(lambda z: z == 0, y))
-    print(len(y_helthcare), "healthcare")
+    y_case_study = list(filter(lambda z: z == 0, y))
+    print(len(y_case_study), "case studies")
 
-    y_automative = list(filter(lambda z: z == 1, y))
-    print(len(y_automative), "automative")
+    y_social_media = list(filter(lambda z: z == 1, y))
+    print(len(y_social_media), "social media")
 
-    y_agriculture = list(filter(lambda z: z == 2, y))
-    print(len(y_agriculture), "agriculture")
-    
-    y_entertainment = list(filter(lambda z: z == 2, y))
-    print(len(y_entertainment), "entertainment")
-    
-    y_education = list(filter(lambda z: z == 2, y))
-    print(len(y_education), "education")
-    
-    
-    y_manufacturing = list(filter(lambda z: z == 2, y))
-    print(len(y_manufacturing), "manufacturing")
+    y_news = list(filter(lambda z: z == 2, y))
+    print(len(y_news), "news")
 
 
-    x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=2, train_size=0.7)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=2, train_size=0.5)
     print(len(x_train), 'train sequences')
     print(len(x_test), 'test sequences')
 
@@ -689,7 +676,6 @@ def classification2_sub_job(classification_data, Titles, Images, link, Documents
     #print(classification_data)
     prediction = model.predict(classification_data,verbose=0)
     print(prediction)
-    
     '''
     if(prediction[0][0] <=  0.6):
                Data={}
@@ -788,24 +774,4 @@ def classification2_sub_job(classification_data, Titles, Images, link, Documents
 ######################################################################################################################    
 
     
-
-if __name__ == '__main__':
-    #scheduler = BackgroundScheduler(executors={'default': ThreadPoolExecutor(2),
-                                             #'processpool': ProcessPoolExecutor(2)})
-    scheduler = BlockingScheduler(executors={'default': ThreadPoolExecutor(2),
-                                        'processpool': ProcessPoolExecutor(2)})
-   
-    scheduler.add_job(data_fetcher, 'interval', seconds=100)
-    scheduler.add_job(crawler, 'interval', hours=150)
-
-    
-    print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
-
-  
-  
-
-    
-    try:
-        scheduler.start()
-    except (KeyboardInterrupt, SystemExit):
-        pass
+data_fetcher()
