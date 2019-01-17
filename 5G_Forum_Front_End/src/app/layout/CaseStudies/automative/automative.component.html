@@ -57,17 +57,36 @@
           <ul>
             <li *ngFor="let item of items">
               <div>
-                <h1 style="color:#122f49;font-size: 25px;font-weight: 700;">{{item._source.title}}</h1>
-            
-    
+                <h1 style="color:#122f49;font-size: 25px;font-weight: 700; text-transform: uppercase;">{{item._source.title}}</h1>
+                <h1 style="color:#6b2525;font-size: 20px;font-weight: 700; margin-left:15px ; text-transform: uppercase;"> - {{item._source.source}} -</h1>
+              </div>
+                <div style="width: 100%; height: 200px;">     
+                
                 <p>
+              
+                    <img style="float: left; max-width: 250px; max-height: 250px; margin-right: 10px; " src="{{item._source.image}}">
+
                     {{item._source.data}}
+                    <a href="{{item._source.link}}" style="color:rgb(49, 78, 133); margin-left:15px">Read More</a>
+
                 </p>
-              </div> 
+               
+              </div>
+              
+              <div>     
+                </div>&nbsp;
                 <div>     
                   </div>&nbsp;
+                  <div>     
+                    </div>&nbsp;
+                
             </li>
-           
+            <div>     
+              </div>&nbsp;
+              <div>     
+                </div>&nbsp;
+                <div>     
+                  </div>&nbsp;
           </ul>
         </div>
 </div>

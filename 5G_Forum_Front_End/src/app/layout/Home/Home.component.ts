@@ -1,6 +1,7 @@
 import { Component, OnInit , EventEmitter, Output , ViewEncapsulation } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { MainServiceProvider } from '../../providers/main-service/main-service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-Home',
@@ -26,8 +27,13 @@ export class HomeComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
     public dashboard : boolean ;
-    constructor(private mainServiceProvider: MainServiceProvider) {
+    public data : any ;
+    constructor(private mainServiceProvider: MainServiceProvider, private toastr: ToastrService) {
+        this.data = {
+        fullname : '',
+        email : ''
 
+        }
 
         this.loadnewsData();
         this.loadsocialmediaData();
@@ -63,6 +69,45 @@ export class HomeComponent implements OnInit {
     }
     
     ngOnInit() {}
+   
+    showSuccess() {
+        console.log("hello word")
+        this.toastr.success('Thanks For Subscribing');
+      }
+      showError(){
+
+        this.toastr.error('Suscribing Error : Please Try Again ..');
+      }
+    subscribe() {
+        this.mainServiceProvider.addsubscriber(this.data)
+
+
+        .then( Data  => {
+            
+            
+            console.log(Data)
+            this.data.email = '';
+            this.data.fullname = '';
+            this.showSuccess()
+           
+
+                
+            
+
+               
+            
+        }
+          ).catch(() => {
+
+           
+            this.data.email = '';
+            this.data.fullname = '';
+            this.showError();
+            
+    
+          })
+          
+      }
     loadnewsData(){
    
         this.mainServiceProvider.loadnewsData()

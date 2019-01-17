@@ -11,6 +11,7 @@ import { Component, OnInit, ChangeDetectionStrategy,
     isSameMonth,
     addHours
   } from 'date-fns';
+import { Router } from '@angular/router';
 import { MainServiceProvider } from '../../../providers/main-service/main-service';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -24,15 +25,15 @@ import {
 const colors: any = {
   red: {
     primary: '#ad2121',
-    secondary: '#FAE3E3'
+    
   },
   blue: {
     primary: '#1e90ff',
-    secondary: '#D1E8FF'
+    
   },
   yellow: {
     primary: '#e3bc08',
-    secondary: '#FDF1BA'
+  
   }
 };
 @Component({
@@ -81,14 +82,19 @@ export class UpcomingEventsComponent implements OnInit {
     
       
   ];
-
+  fakeevents: CalendarEvent[] = [
+    
+      
+  ];
   activeDayIsOpen: boolean = true;
 
 
   public permissionlevel : any ;
   public master : boolean = false;
-  constructor(private mainServiceProvider: MainServiceProvider,private modal: NgbModal) {
 
+  public newevent : any;
+  constructor(public router: Router ,private mainServiceProvider: MainServiceProvider,private modal: NgbModal) {
+    this.loaddata()
     console.log(this.events)
     let data5 = localStorage.getItem('userjwt');
     if(data5){
@@ -110,6 +116,36 @@ export class UpcomingEventsComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  loaddata(){
+
+    this.mainServiceProvider.refreshevents()
+    .then(data => {
+      let upcomingevents = JSON.parse(localStorage.getItem('indexupcomingevents'))
+      console.log(upcomingevents)
+      var i ;
+      console.log(upcomingevents.result)
+      for(i=0; i<upcomingevents.result.length;i++){
+        console.log(upcomingevents.result[i])
+      var newnew : any ={
+        title :  upcomingevents.result[i]._source.title,
+        description :upcomingevents.result[i]._source.description,
+        start : new Date(upcomingevents.result[i]._source.start),
+        end : new Date(upcomingevents.result[i]._source.end),
+        color : upcomingevents.result[i]._source.color,
+        draggable : upcomingevents.result[i]._source.draggable,
+        resizable :upcomingevents.result[i]._source.resizable,
+        link :upcomingevents.result[i]._source.link
+
+      };
+      this.events.push(newnew)
+      console.log(this.events)}
+      this.refresh.next();
+      localStorage.removeItem('indexupcomingevents')
+    }),(err) => {
+          console.log("Erreur");
+    };
+  }
  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
       this.viewDate = date;
@@ -122,6 +158,8 @@ export class UpcomingEventsComponent implements OnInit {
         this.activeDayIsOpen = true;
       }
     }
+
+    this.newevent = event;
   }
 
   eventTimesChanged({
@@ -133,16 +171,22 @@ export class UpcomingEventsComponent implements OnInit {
     event.end = newEnd;
     this.handleEvent('Dropped or resized', event);
     this.refresh.next();
+    this.newevent = event;
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: 'lg' });
+
+    this.newevent = event;
   }
 
   addEvent(): void {
-    this.events.push({
+
+    this.newevent = {
       title: 'New event',
+      link : 'New link',
+      description : 'New description',
       start: startOfDay(new Date()),
       end: endOfDay(new Date()),
       color: colors.red,
@@ -151,8 +195,53 @@ export class UpcomingEventsComponent implements OnInit {
         beforeStart: true,
         afterEnd: true
       }
-    });
+    }
+    this.events.push(this.newevent);
     this.refresh.next();
+    
+  }
+  
+  addNewEvent(){
+    this.events = [];
+    this.events.push(this.newevent);
+    this.mainServiceProvider.pushevent(this.newevent)
+    .then(data => {
+
+      
+    }),(err) => {
+          console.log("Erreur");
+    };
+   
+    this.mainServiceProvider.refreshevents()
+    .then(data => {
+      let upcomingevents = JSON.parse(localStorage.getItem('indexupcomingevents'))
+      console.log(upcomingevents)
+      var i ;
+      console.log(upcomingevents.result)
+      for(i=0; i<upcomingevents.result.length;i++){
+        console.log(upcomingevents.result[i])
+      var newnew : any ={
+        title :  upcomingevents.result[i]._source.title,
+        description :upcomingevents.result[i]._source.description,
+        start : new Date(upcomingevents.result[i]._source.start),
+        end : new Date(upcomingevents.result[i]._source.end),
+        color : upcomingevents.result[i]._source.color,
+        draggable : upcomingevents.result[i]._source.draggable,
+        resizable :upcomingevents.result[i]._source.resizable,
+        link :upcomingevents.result[i]._source.link
+
+      };
+      this.events.push(newnew)
+      console.log(this.events)}
+      this.refresh.next();
+      localStorage.removeItem('indexupcomingevents')
+    }),(err) => {
+          console.log("Erreur");
+    };
+
+
+
+
   }
   loadupcomingeventsData(){
    

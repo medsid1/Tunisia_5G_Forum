@@ -4,8 +4,8 @@ import json
 import pandas as pd
 import hashlib
 
-'''
-df = pd.read_csv('data.csv', sep=",")
+
+df = pd.read_csv('case_studies.csv', sep=",")
 
 
 labels = []    
@@ -19,6 +19,19 @@ for i in df['titles']:
 data = []    
 for i in df['data']:
     data.append(i)
+    
+links = []    
+for i in df['links']:
+    links.append(i)
+    
+sources = []    
+for i in df['sources']:
+    sources.append(i)
+    
+    
+images = []    
+for i in df['images']:
+    images.append(i)
 
 Data = {}
 j=0
@@ -29,6 +42,10 @@ for i in range(len(data)):
     
     Data['title'] = titles[i]
     Data['data'] = data[i]
+    Data['image'] = images[i]
+    Data['source'] = sources[i]
+    Data['link'] = links[i]
+    Data['label'] = labels[i]
     
     if labels[i] == 'healthcare':
         Data['label'] = labels[i]
@@ -56,7 +73,31 @@ for i in range(len(data)):
         Data = {}
         
         
-'''        
+    if labels[i] == 'automative':
+        Data['label'] = labels[i]
+        r = json.dumps(Data)
+        loaded_r = json.loads(r)
+        es.index(index='case_studies_automative', doc_type='case_studies', id=i, body= loaded_r)
+        Data = {}
+        
+        
+    if labels[i] == 'entertainment':
+        Data['label'] = labels[i]
+        r = json.dumps(Data)
+        loaded_r = json.loads(r)
+        es.index(index='case_studies_entertainment', doc_type='case_studies', id=i, body= loaded_r)
+        Data = {}
+        
+        
+    if labels[i] == 'manufacturing':
+        Data['label'] = labels[i]
+        r = json.dumps(Data)
+        loaded_r = json.loads(r)
+        es.index(index='case_studies_manufacturing', doc_type='case_studies', id=i, body= loaded_r)
+        Data = {}
+        
+        
+     
         
 '''       
 df1 = pd.read_csv('Videos.csv', sep=",",)
@@ -260,7 +301,7 @@ for i in range(len(links4)):
     Data = {} 
 '''
 
-
+'''
 df5 = pd.read_csv('past_events.csv', sep=",",)
 
 labels5 = []    
@@ -307,6 +348,6 @@ for i in range(len(links5)):
     loaded_r = json.loads(r)
     es.index(index='past_events', doc_type='past_events', id=i, body= loaded_r)
     Data = {}   
-    
+'''   
     
 

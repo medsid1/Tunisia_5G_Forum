@@ -129,6 +129,22 @@
                             
                     </div>
                 </li> &nbsp;
+                <li *ngIf="master" class="nav-item dropdown" ngbDropdown>
+                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                        <i class="fa fa-user"></i> {{username}} <b class="caret"></b>
+                    </a>
+                    <div class="dropdown-menu-right" ngbDropdownMenu>
+                        <a class="dropdown-item" [routerLink]="['/subscribers']" >
+                            <i class="fa fa-fw fa-search"></i> {{ 'Dashboard'  }}
+                        </a>
+                        <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
+                            <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out'  }}
+                        </a>
+                       
+                    </div>
+                   
+                     
+                </li>
                
             </ul>
         </div>
@@ -187,7 +203,7 @@
 
             <p class="footer-company-about">
                 <span>About Tunisia 5G Forum</span>
-                Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                5G Forum is a dynamic web site allowing its users to access to the latest research and news about the evolution of 5G technology in the world.
             </p>
 
             <div class="footer-icons">

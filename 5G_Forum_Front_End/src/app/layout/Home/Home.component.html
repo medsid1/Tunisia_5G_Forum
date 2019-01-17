@@ -34,7 +34,7 @@
                                     background-size: cover;
                                     border-style: groove;
                                     border-width: 7px;
-                                    max-height: 230px;
+                                    max-height: 250px;
                                     max-width: 100%;
                                     margin-bottom: 0%; 
                                     margin : 0;
@@ -95,7 +95,7 @@
                                                 background-size: cover;
                                                 border-style: groove;
                                                 border-width: 7px;
-                                                max-height: 230px;
+                                                max-height: 250px;
                                                 max-width: 100%;
                                                 margin-bottom: 0%; 
                                                 margin : 0;
@@ -148,14 +148,14 @@
     <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog">
         <p>Subscribe to our newsletter.</p>
         <p>
-            <input type="text" name="email" style="width: 95%; padding: 1px 2px" placeholder="Enter your full name"
+            <input type="text" [(ngModel)]="data.fullname" name="fullname" style="width: 95%; padding: 1px 2px" placeholder="Enter your full name"
                 value="" id="subscribe-field">
-            <input type="text" name="email" style="width: 95%; padding: 1px 2px" placeholder="Enter your email address"
+            <input type="text" [(ngModel)]="data.email" name="email" style="width: 95%; padding: 1px 2px" placeholder="Enter your email address"
                 value="" id="subscribe-field">
 
         </p>
         <p>
-            <input type="submit" value="Submit">
+            <input type="submit" (click)="subscribe()" value="Submit">
         </p>
     </form>
 </section>

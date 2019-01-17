@@ -393,5 +393,189 @@ loadwhitepapersData() {
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
+
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+pushevent(newevent) {
+
+    let link = this.link + "/indexes/pushnewevent";
+
+    return new Promise(resolve => {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+      
+        
+        console.log(headers)
+        this.http.post(link,{newevent : newevent}, { headers: headers })
+            .map(res => res.json())
+            .subscribe(data => {
+                resolve(data);
+                
+            }
+                , (err) => {
+                }
+            );
+    });
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+refreshevents() {
+
+    let link = this.link + "/indexes/upcomingevents";
+
+    return new Promise(resolve => {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        
+        console.log(headers)
+        this.http.get(link, { headers: headers })
+            .map(res => res.json())
+            .subscribe(data => {
+                resolve(data);
+                localStorage.setItem('indexupcomingevents', JSON.stringify(data));
+            }
+                , (err) => {
+                }
+            );
+    });
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+loadsubscribersData() {
+
+   
+
+    let link = this.link + "/Subscribers/loadSubscribersdata";
+
+    return new Promise(resolve => {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        
+        console.log(headers)
+        this.http.get(link, { headers: headers })
+            .map(res => res.json())
+            .subscribe(data => {
+                resolve(data);
+                localStorage.setItem('subscribers', JSON.stringify(data));
+            }
+                , (err) => {
+                }
+            );
+    });
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+  /////////////////////////////////////////////////////////////////////////////////// login service //////////////////////////////////////////////////////////////////////////////////////////
+  addsubscriber(cred) {
+    
+    let inscrit = {
+      email: cred.email,
+      fullname: cred.fullname,
+
+
+    };
+    console.log(inscrit)
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+     
+    return   new Promise(resolve => {
+      this.http.post(this.link + "/Subscribers/addSubscriber", inscrit, { headers: headers })
+        .map(res => res.json())
+        .subscribe(
+          data => {
+            resolve(data);
+            
+            console.log(data)
+
+          },
+          error => {
+            resolve(error)
+           
+          }
+        )
+    })
+        
+    
+  }
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  /////////////////////////////////////////////////////////////////////////////////// login service //////////////////////////////////////////////////////////////////////////////////////////
+  addmessage(cred) {
+    
+    let inscrit = {
+      email: cred.email,
+      firstname: cred.firstname,
+      lastname : cred.lastname,
+      subject : cred.subject
+
+
+
+    };
+    console.log(inscrit)
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+     
+    return   new Promise(resolve => {
+      this.http.post(this.link + "/messages/addMessage", inscrit, { headers: headers })
+        .map(res => res.json())
+        .subscribe(
+          data => {
+            resolve(data);
+            
+            console.log(data)
+
+          },
+          error => {
+            resolve(error)
+           
+          }
+        )
+    })
+        
+    
+  }
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////// load data to testlist ////////////////////////////////////////////////////////////////////////////////////    
+loadmessagesData() {
+
+   
+
+    let link = this.link + "/messages/loadMessagesdata";
+
+    return new Promise(resolve => {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        
+        console.log(headers)
+        this.http.get(link, { headers: headers })
+            .map(res => res.json())
+            .subscribe(data => {
+                resolve(data);
+                localStorage.setItem('messages', JSON.stringify(data));
+            }
+                , (err) => {
+                }
+            );
+    });
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
 }
 

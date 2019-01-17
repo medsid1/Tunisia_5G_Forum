@@ -95,4 +95,16 @@ exports.routesConfig = function (app) {
         searching.getwhitepapers
         
     ]);
+    app.post('/indexes/pushnewevent', [
+        
+        //AuthorizationValidation.validJWTNeeded,
+        searching.pushnewevent
+        
+    ]);
+    app.get('/indexes/upcomingevents', [
+        
+        //AuthorizationValidation.validJWTNeeded,
+        searching.getupcomingevents
+        
+    ]);
 };

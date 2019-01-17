@@ -14,7 +14,7 @@ import { AuthGuard } from './shared';
 import { ControleProvider } from './providers/controle/controle';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { MainServiceProvider } from './providers/main-service/main-service';
-
+import { ToastrModule } from 'ngx-toastr';
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
     /* for development
@@ -35,6 +35,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         HttpClientModule,
         HttpModule,
         FormsModule,
+        ToastrModule.forRoot() ,
         ReactiveFormsModule,
         TranslateModule.forRoot({
             loader: {

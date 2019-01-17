@@ -1,0 +1,81 @@
+
+<hr style="background-color:#6d7fcc; height: 10px; size: 40px; margin-bottom: 0% ; margin-top : 0%">
+
+<div class="col-md-12">
+
+
+
+
+
+    
+
+
+    <div class="row" style="background-color: rgb(204, 201, 201)">
+
+     
+        <div class="col-sm-6" >
+            <h1 style="color: #204458; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; ">Subscribers</h1>
+            <div>
+            </div>&nbsp;
+            <div>     
+            </div>&nbsp;
+            
+              <ul>
+                <li *ngFor="let item of items" style="	border-color :  #667694;
+                border-style: groove;
+                border-width: 7px;
+                max-height: 100px;
+                list-style-type: none;">
+                  <div>
+                    <h1 style="color:#122f49;font-size: 20px;font-weight: 700; ">Email : {{item.email}}</h1>
+                    <h1 style="color:#6b2525;font-size: 15px;font-weight: 700; margin-left:15px ; ">Full Name : - {{item.full_name}} -</h1>
+                  </div>
+        
+            </li>
+                <div>     
+                  </div>&nbsp;
+                  <div>     
+                    </div>&nbsp;
+                    <div>     
+                      </div>&nbsp;
+              </ul> 
+        </div>
+       
+
+        <div class="col-sm-6">
+                <h1 style="color: #204458; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; ">Messages</h1>
+
+            <div>
+            </div>&nbsp;
+            <div>     
+            </div>&nbsp;
+            
+              <ul>
+                <li *ngFor="let item of items1" style="	border-color :  #667694;
+                border-style: groove;
+                border-width: 7px;
+                max-height: 700px;
+                list-style-type: none;">
+                  <div>
+                    <h1 style="color:#122f49;font-size: 20px;font-weight: 700;  ">Email : {{item.email}}</h1>
+                    <h1 style="color:#6b2525;font-size: 15px;font-weight: 700; margin-left:15px ;  ">First Name : - {{item.firstname}} -</h1>
+                    <h1 style="color:#6b2525;font-size: 15px;font-weight: 700; margin-left:15px ; ">Last Name : - {{item.lastname}} -</h1>
+                    <h1 style="color:#6b2525;font-size: 15px;font-weight: 700; margin-left:15px ; ">Subject :  - {{item.subject}} -</h1>
+                  </div>
+        
+            </li>
+                <div>     
+                  </div>&nbsp;
+                  <div>     
+                    </div>&nbsp;
+                    <div>     
+                      </div>&nbsp;
+              </ul> 
+           
+        </div>
+      
+    </div>
+
+
+</div>
+
