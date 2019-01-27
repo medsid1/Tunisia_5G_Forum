@@ -4,7 +4,6 @@ import json
 import pandas as pd
 import hashlib
 
-
 df = pd.read_csv('case_studies.csv', sep=",")
 
 
@@ -96,10 +95,10 @@ for i in range(len(data)):
         es.index(index='case_studies_manufacturing', doc_type='case_studies', id=i, body= loaded_r)
         Data = {}
         
-        
+     
      
         
-'''       
+      
 df1 = pd.read_csv('Videos.csv', sep=",",)
 
 labels1 = []    
@@ -135,14 +134,14 @@ for i in range(len(links1)):
     loaded_r = json.loads(r)
     es.index(index='videos', doc_type='videos', id=i, body= loaded_r)
     Data = {}
-'''   
+  
    
     
     
     
     
     
-'''   
+  
     
 df2 = pd.read_csv('white_papers.csv', sep=",",)
 
@@ -193,11 +192,11 @@ for i in range(len(links2)):
     es.index(index='white_papers', doc_type='white_papers', id=i, body= loaded_r)
     Data = {}
     
-'''    
+ 
     
     
 
-'''
+
 df3 = pd.read_csv('5G_news.csv', sep=",",)
 
 labels3 = []    
@@ -247,9 +246,9 @@ for i in range(len(links3)):
     loaded_r = json.loads(r)
     es.index(index='5g_news', doc_type='5g_news', id=i, body= loaded_r)
     Data = {}
-'''    
+  
     
-'''    
+  
 df4 = pd.read_csv('social_media.csv', sep=",",)
 
 labels4 = []    
@@ -299,9 +298,9 @@ for i in range(len(links4)):
     loaded_r = json.loads(r)
     es.index(index='social_media', doc_type='social_media', id=i, body= loaded_r)
     Data = {} 
-'''
 
-'''
+
+
 df5 = pd.read_csv('past_events.csv', sep=",",)
 
 labels5 = []    
@@ -348,6 +347,6 @@ for i in range(len(links5)):
     loaded_r = json.loads(r)
     es.index(index='past_events', doc_type='past_events', id=i, body= loaded_r)
     Data = {}   
-'''   
+ 
     
 

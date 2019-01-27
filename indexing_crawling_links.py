@@ -105,7 +105,9 @@ links=['https://gsacom.com/',
 
 'https://www.bundesnetzagentur.de/EN/Home/home_node.html',
 
-'https://www.verizonwireless.com/'
+'https://www.verizonwireless.com/',
+
+'https://www.mobileworldlive.com/'
  
        ]
 

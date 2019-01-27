@@ -796,7 +796,7 @@ if __name__ == '__main__':
                                         'processpool': ProcessPoolExecutor(2)})
    
     scheduler.add_job(data_fetcher, 'interval', seconds=100)
-    scheduler.add_job(crawler, 'interval', hours=150)
+    scheduler.add_job(crawler, 'interval', hours = 150)
 
     
     print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
